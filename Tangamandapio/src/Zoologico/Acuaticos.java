@@ -19,7 +19,7 @@ public class Acuaticos extends Animales {
 	
 	@Override
 	public String toString() {
-		return "Acuaticos [Tipo de Ambiente=" + tipoAmbiente + ", Cantidad de Aletas=" + cantidadDeAletas
-				+ ", Nivel de Agresividad=" + nivelDeAgresividad + super.toString()+ "]";
+		return  super.toString() + "Tipo de Ambiente: " + tipoAmbiente + "\nCantidad de Aletas: " + cantidadDeAletas
+				+ "\nNivel de Agresividad: " + nivelDeAgresividad;
 	}
 }

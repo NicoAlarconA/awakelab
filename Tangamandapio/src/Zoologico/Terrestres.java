@@ -19,7 +19,7 @@ public class Terrestres extends Animales {
 
 	@Override
 	public String toString() {
-		return "Terrestres [Cantidad de Patas=" + cantidadDePatas + ", Alimentacion =" + tipoDeAlimentacion
-				+ ", Horas de Sueño=" + horasDeSueno + super.toString()+ "]";
+		return  super.toString() + "\nCantidad de Patas: " + cantidadDePatas + "\nAlimentacion: " + tipoDeAlimentacion
+				+ "\nHoras de Sueño: " + horasDeSueno;
 	}
 }

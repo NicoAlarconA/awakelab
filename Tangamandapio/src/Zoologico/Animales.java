@@ -18,7 +18,7 @@ public class Animales {
 
 	@Override
 	public String toString() {
-		return "Animales [Nombre Animal=" + nombreAnimal + ", País de Origen=" + paisDeOrigen + ", Fecha de Ingreso="
-				+ fechaDeIngreso + "]";
+		return "\nNombre Animal: " + nombreAnimal + "\nPaís de Origen: " + paisDeOrigen + "\nFecha de Ingreso: "
+				+ fechaDeIngreso;
 	}
 }

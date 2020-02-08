@@ -20,6 +20,6 @@ public class Voladores extends Animales{
 
 	@Override
 	public String toString() {
-		return "Voladores [Color de Plumas=" + colorDePlumas + ", Tamaño=" + tamano + ", Migrante=" + migrante + super.toString()+ "]";
+		return super.toString() + "\n Color de Plumas:" + colorDePlumas + "\nTamaño: " + tamano + "\nMigrante: " + migrante;
 	}
 }

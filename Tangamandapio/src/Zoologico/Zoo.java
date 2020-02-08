@@ -2,7 +2,7 @@ package Zoologico;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 import javax.swing.JOptionPane;
 
@@ -27,29 +27,39 @@ public class Zoo{
 	static List<Acuaticos> Acuaticos = new ArrayList <Acuaticos>();
 	static List<Voladores> Voladores = new ArrayList <Voladores>();		
 	
+	static int contadorTerrestre = 0;
+	static int contadorAcuatico = 0;
+	static int contadorVoladores = 0;
+	
 	public static void agregarAnimal() {
-	String tipoAnimal = JOptionPane.showInputDialog("Ingrese tipo de animal:"
-			+ "\n" + "Terrestre"
-					+ "\n" + "Acuatico"
-							+ "\n" + "Voladores");
+	int tipoAnimal = JOptionPane.showInputDialog("Ingrese tipo de animal:"
+			+ "\n" + "1.- Terrestre"
+					+ "\n" + "2.- Acuatico"
+							+ "\n" + "3.- Voladores").charAt(0);
 	
 	switch (tipoAnimal) {
 	
-	case "terrestre":
+	case '1':
+			
 		 nombreAnimal = JOptionPane.showInputDialog("Nombre de Animal: ");
-		 paisOrigen = JOptionPane.showInputDialog("Ingrese país de Origen: ");
+		 paisOrigen = JOptionPane.showInputDialog("Ingrese pais de Origen: ");
 		 fechaIngreso = JOptionPane.showInputDialog("Ingrese fecha de ingreso: ");
 		 cantidadpatas = Byte.parseByte(JOptionPane.showInputDialog("Ingrese cantida de patas: "));
-		 tipoDeAlimentacion = JOptionPane.showInputDialog("Tipo de Alimentación: ");
-		 horasSueno = Byte.parseByte(JOptionPane.showInputDialog("Ingrese horas de sueñoo: "));
+		 tipoDeAlimentacion = JOptionPane.showInputDialog("Tipo de Alimentacion: ");
+		 horasSueno = Byte.parseByte(JOptionPane.showInputDialog("Ingrese horas de sueno: "));
 	
 		Terrestres at = new Terrestres(nombreAnimal,paisOrigen,fechaIngreso,cantidadpatas,tipoDeAlimentacion,horasSueno);
 		Animales.add(at);
+		
+		contadorTerrestre = contadorTerrestre + 1;
+		
+		
 		break;
 		
-	case "acuatico":
+	case '2':
+					
 		nombreAnimal = JOptionPane.showInputDialog("Nombre de Animal: ");
-		paisOrigen = JOptionPane.showInputDialog("Ingrese país de Origen: ");
+		paisOrigen = JOptionPane.showInputDialog("Ingrese pais de Origen: ");
 		fechaIngreso = JOptionPane.showInputDialog("Ingrese fecha de ingreso: ");
 		tipoAmbiente = JOptionPane.showInputDialog("Ingrese tipo de Ambiente: ");
 		cantidadDeAletas = Integer.parseInt(JOptionPane.showInputDialog("Ingrese Cantidad de Aletas: "));
@@ -58,14 +68,16 @@ public class Zoo{
 		Acuaticos aa = new Acuaticos(nombreAnimal,paisOrigen,fechaIngreso,tipoAmbiente,cantidadDeAletas,nivelDeAgresividad);
 		Acuaticos.add(aa);
 		
+		contadorAcuatico = contadorAcuatico + 1;
 		break;
 	
-	case "voladores":
+	case '3':
+		
 		nombreAnimal = JOptionPane.showInputDialog("Nombre de Animal: ");
-		paisOrigen = JOptionPane.showInputDialog("Ingrese país de Origen: ");
+		paisOrigen = JOptionPane.showInputDialog("Ingrese pais de Origen: ");
 		fechaIngreso = JOptionPane.showInputDialog("Ingrese fecha de ingreso: ");
 		colorDePlumas = JOptionPane.showInputDialog("Ingrese Color de Plumas: ");
-		tamano = Integer.parseInt(JOptionPane.showInputDialog("Ingrese tamaño: "));
+		tamano = Integer.parseInt(JOptionPane.showInputDialog("Ingrese tamano: "));
 		String migra; 
 		migra = JOptionPane.showInputDialog("Ingrese si es migrante o no: ");
 		if (migra == "si") {
@@ -75,8 +87,12 @@ public class Zoo{
 	
 		Voladores av = new Voladores(nombreAnimal,paisOrigen,fechaIngreso,colorDePlumas,tamano,migrante);
 		Voladores.add(av);
+		
+		contadorVoladores = contadorVoladores + 1;
+		
 		break;
 
+		
 	default:
 		break;
 	}	
@@ -84,18 +100,24 @@ public class Zoo{
 
 	
 public static void mostrarAnimales(){
-	char letraOpcion;
+	int letraOpcion;
 	
-	letraOpcion = JOptionPane.showInputDialog("Mostar Animales: "
-			+ "\n" + "A.- Terrestres"
-			+ "\n" + "B.- Acuaticos"
-			+ "\n" + "C.- Voladores").charAt(0);
+	letraOpcion = JOptionPane.showInputDialog("Eliga un de tipo de animal: "
+			+ "\n" + "1.- Terrestres"
+			+ "\n" + "2.- Acuaticos"
+			+ "\n" + "3.- Voladores").charAt(0);
 	
 	switch (letraOpcion) {
-	case 'A':
-		System.out.println();
+	case '1':
+		JOptionPane.showMessageDialog(null, Animales);
 		break;
-
+	case '2':
+		JOptionPane.showMessageDialog(null, Acuaticos);
+		break;
+	case '3':
+		JOptionPane.showMessageDialog(null, Voladores);
+		break;
+	
 	default:
 		break;
 	}
@@ -105,17 +127,27 @@ public static void mostrarAnimales(){
 	JOptionPane.showInputDialog(i.toString());		
 	}*/	
 }	
-	
+
+public static void resumenAnimales(){
+
+	JOptionPane.showMessageDialog(null, "Cantidad de Animales"
+			+ "\nAnimales terrestres: "+ contadorTerrestre
+			+ "\nAnimales acuaticos:  "+ contadorAcuatico
+			+ "\nAnimales Voladores:  "+ contadorVoladores);
+	}
+
+
 public static void main(String[]Args) {
 	
 	do {
 		
 		
 		letra = JOptionPane.showInputDialog("Ingrese opcion: "
-		+ "\n" + "1.- Agregar Animal: A"
-		+ "\n" + "2.- Mostrar Animal: B"
-		+ "\n" + "3.- Resumen: C"
-		+ "\n" + "4.- Salir: D").charAt(0);
+		+ "\n" + "A.- Agregar Animal"
+		+ "\n" + "B.- Mostrar Animal"
+		+ "\n" + "C.- Resumen"
+		+ "\n" + "D.- Salir: D").charAt(0);
+		
 		
 		/*System.out.println("Ingrese opcion: ");
 		System.out.println("Agregar animal: A ");
@@ -135,22 +167,14 @@ public static void main(String[]Args) {
 				break;
 				
 			case 'c':
-				
+				resumenAnimales();
 				break;
 			
 			case 'd':
-				System.out.println("No' vimo");
+				JOptionPane.showMessageDialog(null,"Adios");
 				break;			
 		}	
 	}while(letra != 'd');
-		
 	
-	
-	for (Terrestres i : Animales) {
-		System.out.println(i.toString());
 	}
-}
-
-	
-	
 }
