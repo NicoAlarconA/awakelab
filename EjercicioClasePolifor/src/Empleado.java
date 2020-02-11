@@ -1,5 +1,5 @@
 
-abstract class Empleado {
+public abstract class Empleado {
 
 	private String nombre;
 	private String apellido;
@@ -11,7 +11,9 @@ abstract class Empleado {
 	private String supervisor;
 	private String rutSupervisor;
 	
-	
+	public Empleado() {
+		
+	}
 	
 	public Empleado(String nombre, String apellido, int dni, String direccion, String anosAntiguedad, int telefono,
 			int salario, String supervisor, String rutSupervisor) {
@@ -131,5 +133,9 @@ abstract class Empleado {
 	
 	public abstract double aumentarSueldo();
 
+	public void imprimir() {
+		System.out.println("Nombre: " + nombre + "apellido: " + apellido + "run: " + dni 
+				+ "direccion: " + direccion);
+	}
 
 }
